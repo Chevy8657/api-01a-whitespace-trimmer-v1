@@ -27,4 +27,3 @@ def whitespace_trim(text: str = Query(..., description="Text to trim/normalize w
         "original_length": len(original),
         "trimmed_length": len(trimmed),
     }
-
