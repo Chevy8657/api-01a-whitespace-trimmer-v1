@@ -20,7 +20,6 @@ def health():
 @app.get("/v1/whitespace-trim", response_model=WhitespaceTrimResponse)
 def whitespace_trim(text: str = Query(..., description="Text to trim/normalize whitespace")):
     original = text
-    # strip leading/trailing whitespace, then collapse all internal whitespace runs to single spaces
     trimmed = re.sub(r"\s+", " ", original.strip())
     return {
         "input": original,
@@ -28,3 +27,4 @@ def whitespace_trim(text: str = Query(..., description="Text to trim/normalize w
         "original_length": len(original),
         "trimmed_length": len(trimmed),
     }
+
